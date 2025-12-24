@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP TypeScript Demo</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .rate-star {
+        font-size: 1rem;
+        --percent: calc(var(--rate) * 20%);
+        display: inline-block;
+        line-height: 1;
+      }
+      .rate-star::after {
+        content: "\2605\2605\2605\2605\2605";
+        background: linear-gradient(
+          to right,
+          #f59e0b var(--percent),
+          #e5e7eb var(--percent)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h-screen w-full bg-black overflow-hidden">
+      <div class="text-white text-5xl font-bold text-center pt-[10vh]">
+        <span class="rate-star" style="--rate: 4"></span>
+        <span class="rate-star" style="--rate: 4.5"></span>
+        <span class="rate-star" style="--rate: 5"></span>
+      </div>
+      <div class="columns-4 text-white text-2xl w-full px-4">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+        excepturi in labore ut eos? Nulla consequatur expedita saepe nam minima,
+        fugit quia itaque, excepturi ullam at eius, natus modi voluptate. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Nemo ut iure veniam
+        nulla, dolor saepe voluptas dicta assumenda minus deleniti, tempore
+        quaerat! Ratione natus nihil praesentium blanditiis officiis sunt quo?
+      </div>
+    </div>
+    <div
+      id="fade-container"
+      class="overflow-hidden w-full h-screen relative bg-black/85 flex flex-col justify-center items-center gap-10"
+    >
+      <div
+        class="w-full flex justify-center items-center gap-10 h-[512px] px-20 absolute fade-item"
+      >
+        <img
+          class="h-full"
+          src="https://store.runmefit.com/cdn/shop/files/runmefit_gts8_smart_watch_bluetooth_calling.webp?v=1732616450"
+          alt=""
+        />
+        <div class="flex flex-col gap-4 text-white">
+          <h2 class="text-4xl font-bold">MESSAGE AND NOTIFICATIONS</h2>
+          <p class="text-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quos.
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full flex justify-center items-center gap-10 h-[512px] px-20 absolute fade-item"
+      >
+        <img
+          class="h-full"
+          src="https://store.runmefit.com/cdn/shop/files/runmefit_gts8_smart_watch_message_and_notifications.webp?v=1732616450"
+          alt=""
+        />
+        <div class="flex flex-col gap-4 text-white">
+          <h2 class="text-4xl font-bold">MESSAGE AND NOTIFICATIONS</h2>
+          <p class="text-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quos.
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full flex justify-center items-center gap-10 h-[512px] px-20 absolute fade-item"
+      >
+        <img
+          class="h-full"
+          src="https://store.runmefit.com/cdn/shop/files/runmefit_gts8_smart_watch_event_remidners.webp?v=1732616450"
+          alt=""
+        />
+        <div class="flex flex-col gap-4 text-white">
+          <h2 class="text-4xl font-bold">Stay Alerted</h2>
+          <p class="text-2xl">
+            Sync your events from the Runmefit app and stay updated on all
+            important moments. Keep your schedule in check, never miss out any
+            important events.
+          </p>
+        </div>
+      </div>
+      <div
+        class="w-full flex justify-center items-center gap-10 h-[512px] px-20 absolute fade-item overflow-hidden"
+      >
+        <img
+          class="h-full"
+          src="https://store.runmefit.com/cdn/shop/files/runmefit_gts8_smart_watch_voice_assistant_4f11fcb6-7951-420d-9dbb-52472a27926c.webp?v=1732616573"
+          alt=""
+        />
+        <div class="flex flex-col gap-4 text-white">
+          <h2 class="text-4xl font-bold">Bluetooth Voice Assistant</h2>
+          <p class="text-2xl">
+            Activate your phone's voice assistant via Bluetooth for seamless,
+            hands-free convenience. Whether it's making a call, setting a
+            reminder, or checking the weather—all without pulling out your
+            phone.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full h-screen bg-teal-900 py-20 overflow-hidden flex items-center"
+      id="horizontal-container"
+    >
+      <div
+        class="flex justify-start items-center gap-5 pl-20"
+        id="horizontal-wrapper"
+      >
+        <div class="w-[440px]"></div>
+        <div class="w-[400px]"></div>
+        <div
+          class="w-[440px] h-[600px] bg-white/95 rounded-sm border border-gray-300 flex-shrink-0"
+        ></div>
+        <div
+          class="w-[440px] h-[600px] bg-white/50 rounded-sm border border-gray-300 flex-shrink-0"
+        ></div>
+        <div
+          class="w-[440px] h-[600px] bg-white/75 rounded-sm border border-gray-300 flex-shrink-0"
+        ></div>
+        <div
+          class="w-[440px] h-[600px] bg-black/50 rounded-sm border border-gray-300 flex-shrink-0"
+        ></div>
+      </div>
+    </div>
+    <div
+      class="w-full bg-[#dbe8f7] px-10 py-5 flex flex-col gap-20"
+      id="sticky-wrapper"
+    >
+      <div class="w-full flex gap-10 sticky-container" data-bg="#dbe8f7">
+        <div class="w-1/2 flex flex-col gap-4 sticky top-5 self-start content">
+          <h4 class="text-4xl font-semibold">METABOLIC CAPACITY</h4>
+          <h2 class="text-7xl font-bold leading-snug">
+            Wake Up Stronger, Healthier, and More Energetic
+          </h2>
+          <p class="text-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quos.
+          </p>
+        </div>
+        <div class="w-1/2 flex flex-col gap-4">
+          <img
+            src="https://humehealth.com/cdn/shop/files/comp__band.webp?v=1754460823&width=1920"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+          <img
+            src="https://humehealth.com/cdn/shop/files/hume_band_wratch.png?v=1748926264&width=1310"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+      <div class="w-full flex gap-10 sticky-container" data-bg="#fff">
+        <div class="w-1/2 flex flex-col gap-4 sticky top-5 self-start content">
+          <h4 class="text-4xl font-semibold">TITLE HERE</h4>
+          <h2 class="text-7xl font-bold leading-snug">
+            Get a Better Night's Sleep
+          </h2>
+          <p class="text-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quos.
+          </p>
+        </div>
+        <div class="w-1/2 flex flex-col gap-4">
+          <img
+            src="https://humehealth.com/cdn/shop/files/energy-85.png?v=1745576733&width=655"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+          <img
+            src="https://humehealth.com/cdn/shop/files/comp__band.webp?v=1754460823&width=1920"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+      <div class="w-full flex gap-10 sticky-container" data-bg="#000">
+        <div class="w-1/2 flex flex-col gap-4 sticky top-5 self-start content">
+          <h4 class="text-4xl font-semibold text-white">ABOUT HUME</h4>
+          <h2 class="text-7xl font-bold leading-snug text-white">
+            We're not just a watch, we're a lifestyle
+          </h2>
+          <p class="text-2xl text-white">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            quos.
+          </p>
+        </div>
+        <div class="w-1/2 flex flex-col gap-4">
+          <img
+            src="https://humehealth.com/cdn/shop/files/65-recovery.png?v=1746104624&width=983"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+          <img
+            src="https://humehealth.com/cdn/shop/files/Group_427320164.png?v=1745925880&width=983"
+            alt="band"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-screen w-full bg-white relative overflow-hidden"
+      id="text-container"
+    >
+      <h1
+        class="opacity-1 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text111111
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text22222
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text33333
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text44444
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text55555
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text66666
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text77777
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text88888
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text99999
+      </h1>
+      <h1
+        class="opacity-0 text-black text-8xl font-bold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        Text101010
+      </h1>
+    </div>
+    <div class="flex items-center justify-center gap-5 py-10 box-container">
+      <div class="box1 w-20 h-20 bg-red-500 rounded-lg opacity-0"></div>
+      <div class="box1 w-20 h-20 bg-yellow-500 rounded-lg opacity-0"></div>
+      <div class="box1 w-20 h-20 bg-blue-500 rounded-lg opacity-0"></div>
+    </div>
+    <div
+      class="h-screen w-full bg-black relative overflow-hidden"
+      id="banner-wrapper"
+    >
+      <div
+        class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-10"
+      >
+        <div
+          id="banner-text"
+          style="display: none"
+          class="absolute px-20 text-white bottom-20 left-0text-white text-3xl font-bold w-full justify-between flex items-center"
+        >
+          <span>Left Text</span>
+          <span>Right Text</span>
+        </div>
+        <h1
+          class="flex items-center justify-center text-white text-8xl font-bold"
+        >
+          <span
+            class="mx-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500"
+            >4K</span
+          >
+          <span id="plus">+</span>
+          <div
+            id="img-wrapper"
+            class="w-0 h-[96px] self-stretch overflow-hidden flex items-center justify-center"
+          >
+            <div class="wrapper w-screen h-screen">
+              <img
+                src="./src/gift-banner.webp"
+                alt="banner"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <span
+            class="mx-10 bg-clip-text text-transparent bg-gradient-to-l from-white to-gray-500"
+            >4K</span
+          >
+        </h1>
+        <p
+          id="description"
+          class="w-full max-w-[50%] text-white text-center text-2xl font-bold"
+        >
+          Lorem ipsum dolor sit amet consectetur
+        </p>
+      </div>
+    </div>
+    <div
+      id="gift-guide-container"
+      class="h-screen w-full bg-black relative overflow-hidden flex items-center justify-center"
+    >
+      <div
+        id="gift-guide-wrapper"
+        class="w-[70%] h-2 relative overflow-hidden flex items-center justify-center"
+      >
+        <div class="w-screen h-screen absolute">
+          <img
+            src="./src/gift-guide.webp"
+            alt="banner"
+            class="w-full h-full object-cover object-left"
+          />
+        </div>
+        <div
+          id="gift-guide-overlay"
+          class="relative opacity-0 w-screen h-screen top-0 left-0 bg-black/50 flex items-center justify-center"
+        >
+          <h2
+            class="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 text-4xl font-bold text-center"
+          >
+            Always with you
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container h-16 flex items-center gap-4 justify-center relative bg-gray-900 rounded-full px-7 w-fit mx-auto"
+    >
+      <span class="text-white text-base opacity-0 scale-x-0 overflow-hidden"
+        >Compare iPhone design</span
+      >
+      <div
+        class="svg-container w-10 h-10 right-5 bg-white rounded-full absolute"
+      >
+        <svg
+          class="icon-control icon-control-plus"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 36 36"
+        >
+          <path
+            d="m24 16.5h-4.5v-4.5c0-.8286-.6719-1.5-1.5-1.5s-1.5.6714-1.5 1.5v4.5h-4.5c-.8281 0-1.5.6714-1.5 1.5s.6719 1.5 1.5 1.5h4.5v4.5c0 .8286.6719 1.5 1.5 1.5s1.5-.6714 1.5-1.5v-4.5h4.5c.8281 0 1.5-.6714 1.5-1.5s-.6719-1.5-1.5-1.5z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <button>pause / play</button>
+    <button id="replay">replay</button>
+    <div class="h-[100vh] w-full bg-white"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
